@@ -1,0 +1,37 @@
+﻿
+@model List<EntityLayer.Concrete.Content>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="tab-pane" id="timeline">
+    <!-- The timeline -->
+
+    @foreach (var item in Model)
+    {
+        <div class="time-label mb-2">
+            <span class="bg-success">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyyy"))</span>
+        </div>
+        <div class="timeline timeline-inverse">
+            <div>
+                <i class="fas fa-comments bg-warning"></i>
+
+                <div class="timeline-item">
+                    <span class="time"><i class="far fa-clock"></i> @item.ContentDate.ToString("dd-MM-yyyy")</span>
+
+                    <h3 class="timeline-header"><a href="#">@item.Value</a> </h3>
+
+                    <div class="timeline-body">
+                        @item.Value
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+

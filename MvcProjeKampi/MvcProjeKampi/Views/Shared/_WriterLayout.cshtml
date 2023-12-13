@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@Html.Action("HeadPartial", "Admin")
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        @Html.Action("SideBarPartial", "WriterPanel")
+        <div class="content-wrapper">
+            <div class="content p-5">
+
+                @RenderBody()
+
+            </div>
+        </div>
+
+        @Html.Action("FooterPartial", "Admin")
+    </div>
+
+    @Html.Action("ScriptPartial", "Admin")
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿
+@model EntityLayer.Concrete.Message
+
+
+@{
+    ViewBag.Title = "ReadMail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Mesaj Detayları</h1>
+            </div>
+
+        </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Action("SideBar", "WriterPanelMessage")
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Mesaj İçerik</h3>
+
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="mailbox-read-info">
+                            <h5>@Model.Subject</h5>
+                            <h6>
+                                <b>Kimden:</b> @Model.SenderMail <br />
+                                <b>Kime:</b> @Model.ReceiverMail
+                                <span class="mailbox-read-time float-right">@(((DateTime)Model.MessageDate).ToString("dd-MMM-yyyy"))</span>
+                            </h6>
+                        </div>
+                        <div class="mailbox-controls with-border text-center">
+                            <div class="btn-group">
+                                <a href="/WriterPanelMessage/DeleteMessage/@Model.ID" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                                <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
+                                    <i class="fas fa-reply"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
+                                <i class="fas fa-print"></i>
+                            </button>
+                        </div>
+                        <div class="mailbox-read-message">
+
+
+                            <p>@Html.Raw(Model.Content)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+

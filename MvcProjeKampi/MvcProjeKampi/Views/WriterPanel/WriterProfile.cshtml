@@ -1,0 +1,31 @@
+﻿
+@model EntityLayer.Concrete.Writer
+
+@{
+    ViewBag.Title = "WriterProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Profilim</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-muted">
+
+            <div class="card mx-auto w-50" style="width: 25rem;">
+                <img src="~/WriterImages/@Model.Image" class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><b> @Model.Name @Model.Surname </b></h5>
+                    <p class="card-text">@Model.About</p>
+                    <p class="card-text"><b>Title:</b> @Model.Title</p>
+                    <p class="card-text"><b>Mail:</b> @Model.Mail</p>
+                </div>
+                <a href="/WriterPanel/UserEditProfile/@Model.WriterID/" class="btn btn-primary mt-3">Profilimi Düzenle</a>
+
+            </div>
+       </div>
+
+
+    </div>
+</div>
+

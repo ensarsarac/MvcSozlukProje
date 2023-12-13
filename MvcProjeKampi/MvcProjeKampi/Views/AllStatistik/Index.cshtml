@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .kutu1{
+        width:20%;
+        height:20vh;
+        background-color:aqua;
+        text-align:center;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:35px;
+        color:white;
+        margin-bottom:30px;
+    }
+</style>
+
+<h2>Tüm İstatistikler</h2>
+<br />
+
+<div class="kutu d-flex justify-content-between">
+
+    <div class="kutu1 mr-2" style="background-color: #161A30;"> @ViewBag.v1 <br /> Toplam Kategori</div>
+    <div class="kutu1 mr-2" style="background-color: #2D9596;"> @ViewBag.v2 <br /> Dizi Kategorisi Başlıklar</div>
+    <div class="kutu1 mr-2" style="background-color: #EC8F5E;"> @ViewBag.v3 <br />Adında 'a' Harfi Geçen Yazarlar</div>
+    <div class="kutu1 mr-2" style="background-color: #61A3BA;"> @ViewBag.v5 <br />Kategori True False Farkı</div> <br />
+
+</div>
+

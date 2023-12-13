@@ -1,0 +1,62 @@
+﻿
+@model List<EntityLayer.Concrete.Heading>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Başlık Listesi</h2>
+<hr />
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="search" placeholder="Başlık ara.." class="form-control" name="searchheading" />
+        <button type="submit" class="btn btn-primary">Ara</button>
+    </div>
+</form>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>#</th>
+        <th>Başlık Adı</th>
+        <th>Kategori</th>
+        <th>Başlık Oluşturan Yazar</th>
+        <th>Tarih</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Yazılar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.HeadingID</td>
+    <td>@item.Name</td>
+    <td class="">@item.Category.Name</td>
+    <td> <img src="~/WriterImages/@item.Writer.Image" class="rounded-pill mr-2" style="width:60px;height:60px;" /> @item.Writer.Name @item.Writer.Surname</td>
+    <td>@item.HeadingDate.ToString("dd-MM-yyyy")</td>
+    @switch (item.Status)
+    {
+        case true:
+            <td><span class="badge badge-success p-2">Aktif</span></td>
+            break;
+        case false:
+            <td><span class="badge badge-danger p-2">Pasif</span></td>
+            break;
+
+    }
+
+
+    <td><a href="/Heading/AreYouSureDelete/@item.HeadingID/" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Sil</a></td>
+    <td><a href="/Heading/UpdateHeading/@item.HeadingID/" class="btn btn-warning"><i class="fa-solid fa-pencil"></i> Düzenle</a></td>
+    <td><a href="/Content/Index/@item.HeadingID/" class="btn btn-info"><i class="fa-solid fa-pager"></i> Yazılar</a></td>
+</tr>
+    }
+
+
+</table>
+
+<a href="/Heading/AddHeading/" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Yeni Başlık Oluştur</a>
+

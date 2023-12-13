@@ -1,0 +1,31 @@
+﻿
+@model EntityLayer.Concrete.Category
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    
+
+    @using (Html.BeginForm("Index","Category",FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label class="form-label">Kategori Adı</label>
+                    @Html.TextBoxFor(x=>x.Name, new {@class="form-control" })
+                    @Html.ValidationMessageFor(x=>x.Name)
+                </div>
+                <button type="submit">Ekle</button>
+            }
+
+
+
+</body>
+</html>

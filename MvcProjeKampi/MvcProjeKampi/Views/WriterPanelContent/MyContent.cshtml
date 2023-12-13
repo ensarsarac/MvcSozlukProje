@@ -1,0 +1,53 @@
+﻿
+@model List<EntityLayer.Concrete.Content>
+
+
+@{
+    ViewBag.Title = "MyContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Yazılarım</h2>
+<hr />
+
+<div class="tab-pane" id="timeline">
+    <!-- The timeline -->
+    @if (Model.Count <= 0)
+    {
+
+
+        <h2>Henüz bir başlığa yazı yazmadınız..</h2>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="time-label mb-2">
+                <span class="bg-success">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyyy"))</span>
+            </div>
+            <div class="timeline timeline-inverse">
+                <div>
+                    <i class="fas fa-comments bg-warning"></i>
+
+                    <div class="timeline-item">
+                        <span class="time"><i class="far fa-clock"></i> @item.ContentDate.ToString("dd-MM-yyyy")</span>
+
+                        <h3 class="timeline-header"><a href="#">@item.Heading.Name</a></h3>
+
+                        <div class="timeline-body py-3">
+                            @item.Value
+                            <a href="#" class="btn btn-danger btn-sm float-right">Sil</a>
+                            <a href="#" class="btn btn-warning btn-sm float-right clearfix mr-3">Düzenle</a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    }
+
+</div>
+

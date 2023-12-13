@@ -1,0 +1,39 @@
+﻿
+@model List<EntityLayer.Concrete.Content>
+
+@{
+    ViewBag.Title = "HeadingContent";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>@ViewBag.heading </h2>
+<hr />
+<div class="tab-pane" id="timeline">
+    <!-- The timeline -->
+
+    @foreach (var item in Model)
+    {
+        <div class="time-label mb-2">
+            <span class="bg-success p-1 mb-1">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyyy")) - @item.Writer.Name @item.Writer.Surname</span>
+        </div>
+        <div class="timeline timeline-inverse">
+            <div>
+                <i class="fas fa-comments bg-warning"></i>
+
+                <div class="timeline-item">
+                    <span class="time"><i class="far fa-clock"></i> @item.ContentDate.ToString("dd-MM-yyyy")</span>
+
+                    <h3 class="timeline-header"><a href="#">@item.Writer.Name @item.Writer.Surname</a> başlığa bir entry girdi. </h3>
+
+                    <div class="timeline-body">
+                        @item.Value
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+

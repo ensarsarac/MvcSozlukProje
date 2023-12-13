@@ -1,0 +1,52 @@
+﻿
+@model EntityLayer.Concrete.Writer
+
+@{
+    ViewBag.Title = "UserEditProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Profili Düzenle</h2>
+<hr />
+
+@using (Html.BeginForm("UserEditProfile", "WriterPanel", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.WriterID)
+    @Html.HiddenFor(x=>x.Mail)
+    <div class="form-group">
+        @Html.Label("Adınız:")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Soyadınız:")
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Surname, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Hakkınzda:")
+        @Html.TextAreaFor(x => x.About, 3, 3, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.About, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Ünvan:")
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Resim:")
+        @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Image, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Şifre:")
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+}

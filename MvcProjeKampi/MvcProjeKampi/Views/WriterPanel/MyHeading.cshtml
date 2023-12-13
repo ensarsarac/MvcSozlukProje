@@ -1,0 +1,50 @@
+﻿
+@model List<EntityLayer.Concrete.Heading>
+
+@{
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<h2>Başlıklarım</h2>
+<hr />
+<table class="table">
+
+    <tr>
+        <th>#</th>
+        <th>Başlık Adı</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Yazılar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.HeadingID</td>
+    <td>@item.Name</td>
+    <td> <span class="badge badge-secondary p-2"> @item.Category.Name</span></td>
+    <td>@item.HeadingDate.ToString("dd-MMM-yyyy")</td>
+    <td>
+        <a href="/WriterPanel/DeleteHeading/@item.HeadingID/" class="btn btn-danger btn-md">
+            <i class="fa-solid fa-trash"></i> Sil
+        </a>
+    </td>
+    <td>
+        <a href="/WriterPanel/UpdateHeading/@item.HeadingID/" class="btn btn-warning btn-md">
+            <i class="fa-solid fa-pencil"></i> Düzenle
+        </a>
+    </td>
+    <td>
+        <a href="/Default/HeadingContent/@item.HeadingID/" class="btn btn-info btn-md">
+            <i class="fa-solid fa-pencil"></i> Yazılar
+        </a>
+    </td>
+</tr>
+    }
+
+
+</table>
+
+<a href="/WriterPanel/CreateHeading/" class="btn btn-primary btn-md">
+    <i class="fa-solid fa-plus"></i> Yeni Başlık Oluştur
+</a>

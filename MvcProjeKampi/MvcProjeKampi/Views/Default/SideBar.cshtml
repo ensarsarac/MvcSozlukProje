@@ -1,0 +1,47 @@
+﻿
+
+@model List<EntityLayer.Concrete.Heading>
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="~/AdminLTE-3.0.4/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">Kullanıcı Paneli</span>
+    </a>
+    <a href="#" class="brand-link">
+       
+        <span class="brand-text font-weight-light ml-3">Başlıklar</span>
+    </a>
+
+    <div class="sidebar">
+
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                @foreach (var item in Model)
+                {
+                    <li class="nav-item">
+                        <a href="/Default/HeadingContent/@item.HeadingID" class="nav-link">
+                            @if (item.Name.Length < 20)
+                            {
+                                <p>@item.Name</p>
+
+                            }
+                            else
+                            {
+                                <p>@item.Name.Substring(0, 20)...</p>
+                            }
+                        </a>
+
+                    </li>
+                }
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

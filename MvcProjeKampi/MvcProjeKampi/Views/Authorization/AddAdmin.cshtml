@@ -1,0 +1,32 @@
+﻿
+@model EntityLayer.Concrete.Admin
+
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Admin Tanımla</h2>
+<hr />
+
+@using (Html.BeginForm("AddAdmin", "Authorization", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.ID)
+    <div class="form-group">
+        @Html.Label("Admin Mail")
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Şifre")
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Yetki")
+        @Html.TextBoxFor(x => x.Role, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Admin Kaydet</button>
+
+}
+

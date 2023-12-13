@@ -1,0 +1,49 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<EntityLayer.Concrete.Heading>
+
+@{
+    ViewBag.Title = "AllHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Başlıklarım</h2>
+<hr />
+<table class="table">
+
+    <tr>
+        <th>#</th>
+        <th>Başlık Adı</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Yaz</th>
+        <th>Yazılar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.HeadingID</td>
+            <td>@item.Name</td>
+            <td> <span class="badge badge-secondary p-2"> @item.Category.Name</span></td>
+            <td>@item.HeadingDate.ToString("dd-MMM-yyyy")</td>
+            <td>
+                <a href="/WriterPanel/AddContent/@item.HeadingID" class="btn btn-primary btn-md">
+                    <i class="fa-solid fa-pencil"></i> Bu Başlığa Yaz
+                </a>
+            </td>
+            <td>
+                <a href="/Default/HeadingContent/@item.HeadingID/" class="btn btn-info btn-md">
+                    <i class="fa-solid fa-pager"></i> Yazılar
+                </a>
+            </td>
+        </tr>
+    }
+
+
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfaNo => Url.Action("AllHeading", "WriterPanel", new { sayfaNo }), new PagedListRenderOptions {
+
+    LiElementClasses = new List<string> { "page-link"}
+})

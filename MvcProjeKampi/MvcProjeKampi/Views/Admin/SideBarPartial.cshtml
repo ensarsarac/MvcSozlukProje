@@ -1,0 +1,152 @@
+﻿
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="~/AdminLTE-3.0.4/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+    <div class="sidebar">
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                @if (User.IsInRole("A"))
+                {
+                    <li class="nav-item">
+                        <a href="/AdminCategory/Index/" class="nav-link">
+                            <i class="fa-solid fa-list mr-1"></i>
+                            <p>
+                                Kategoriler
+                            </p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="/AllStatistik/Index/" class="nav-link">
+                            <i class="fa-solid fa-chart-line mr-1"></i>
+                            <p>
+                                İstatistikler
+                            </p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Authorization/Index/" class="nav-link">
+                            <i class="fa-solid fa-user-plus mr-1"></i>
+                            <p>
+                                Yetkilendirmeler
+                            </p>
+                        </a>
+                    </li>
+                }
+
+                <li class="nav-item">
+                    <a href="/Heading/Index/" class="nav-link">
+                        <i class="fa-solid fa-heading mr-1"></i>
+                        <p>
+                            Başlıklar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Writer/Index/" class="nav-link">
+                        <i class="fa-solid fa-file-pen mr-1"></i>
+                        <p>
+                            Yazarlar
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Heading/HeadingReport/" class="nav-link">
+                        <i class="fa-solid fa-file-pen mr-1"></i>
+                        <p>
+                            Raporlama
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-chart-pie mr-1"></i>
+                        <p>
+                            Grafikler
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Chart/Chart1/" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Grafik 1</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Grafik 2</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/inline.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Grafik 3</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/About/Index/" class="nav-link">
+                        <i class="fa-solid fa-address-card mr-1"></i>
+                        <p>
+                            Hakkımızda
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Contact/Index/" class="nav-link">
+                        <i class="fa-solid fa-message mr-1"></i>
+                        <p>
+                            İletişim & Mesajlar
+                        </p>
+                    </a>
+
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a href="/Gallery/Index/" class="nav-link">
+                        <i class="fa-solid fa-images mr-1"></i>
+                        <p>
+                            Galeri
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="/Home/Index/" class="nav-link">
+                        <i class="fa-solid fa-backward mr-1"></i>
+                        <p>
+                            Siteye Dön
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="/Login/Logout/" class="nav-link">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i>
+                        <p>
+                            Çıkış Yap
+                        </p>
+                    </a>
+
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
